@@ -5,4 +5,12 @@ body {
   background-color: azure;
 }
 
+.danger {
+  @apply p-0 mt-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50;
+}
+
+.success {
+  @apply p-0 mt-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50;
+}
+
 @tailwind utilities;

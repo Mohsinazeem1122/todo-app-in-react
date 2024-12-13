@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const List = ({ items, removeItem }) => {
   return (
@@ -9,9 +9,14 @@ const List = ({ items, removeItem }) => {
         return (
           <div key={id} className="flex justify-between p-1">
             <p>{title}</p>
-            <button className="text-red-500" onClick={() => removeItem(id)}>
-              <FaTrash />
-            </button>
+            <div className="space-x-1">
+              <button className="text-green-400">
+                <FaEdit />
+              </button>
+              <button className="text-red-500" onClick={() => removeItem(id)}>
+                <FaTrash />
+              </button>
+            </div>
           </div>
         );
       })}
