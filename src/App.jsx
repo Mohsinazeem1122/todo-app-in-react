@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState("");
+  const [todoList, setTodoList] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTodoList(input);
+    setInput("");
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="grid place-items-center text-center w-1/2 mx-auto bg-white m-20 shadow-lg">
+        <form onSubmit={handleSubmit}>
+          <h3 className="font-bold text-xl mt-2">Todo App</h3>
+          <div className="mt-5 mb-6">
+            <input
+              className="bg-blue-50 p-1 mr-1 rounded w-96 pl-4 outline-none"
+              type="text"
+              placeholder="e.g. eggs"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <button className="bg-blue-300 rounded p-1">Submit</button>
+          </div>
+          {todoList}
+        </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
