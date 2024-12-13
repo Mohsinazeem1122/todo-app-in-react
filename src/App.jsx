@@ -50,7 +50,7 @@ function App() {
 
   const clearItems = () => {
     setTodoList([]);
-    showAlert(true, "danger", "empty list");
+    showAlert(true, "danger", "empty-list");
   };
 
   // const editItem = (id) => {
