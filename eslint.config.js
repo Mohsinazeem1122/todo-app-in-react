@@ -30,6 +30,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
       "react/jsx-uses-react": "error",
       "react/jsx-uses-vars": "error",
+      "react/prop-types": "off",
       "react/jsx-no-target-blank": "off",
       "react-refresh/only-export-components": [
         "warn",

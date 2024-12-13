@@ -1,4 +1,5 @@
 import { useState } from "react";
+import List from "./components/List";
 
 function App() {
   const [input, setInput] = useState("");
@@ -6,8 +7,18 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodoList(input);
+    const newItem = { id: Math.random(), title: input };
+
+    setTodoList((prevTodoList) => [...prevTodoList, newItem]);
     setInput("");
+  };
+
+  const removeTodo = (id) => {
+    setTodoList(todoList.filter((item) => item.id !== id));
+  };
+
+  const clearItems = () => {
+    setTodoList([]);
   };
 
   return (
@@ -25,8 +36,16 @@ function App() {
             />
             <button className="bg-blue-300 rounded p-1">Submit</button>
           </div>
-          {todoList}
         </form>
+
+        {todoList.length > 0 && (
+          <div className="w-[445px]">
+            <List items={todoList} removeItem={removeTodo} />
+            <button className="text-red-500 m-6" onClick={clearItems}>
+              clear items
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
